@@ -2,26 +2,26 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Producto;
-import com.example.demo.repository.ProductoRepo;
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductoService {
+public class ProductService {
 	@Autowired
-    private ProductoRepo productRepo;
+    private ProductRepo productRepo;
 
-    public List<Producto> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productRepo.findAll();
     }
 
-    public Producto getProductById(Long id) {
+    public Product getProductById(Long id) {
         return productRepo.findById(id).orElse(null);
     }
 
-    public void saveProduct(Producto product) {
+    public void saveProduct(Product product) {
         productRepo.save(product);
     }
 
@@ -29,12 +29,12 @@ public class ProductoService {
         productRepo.deleteById(id);
     }
 
-    public List<Producto> filterProducts(String name, Double minPrice, Double maxPrice) {
+    public List<Product> filterProducts(String name, Double minPrice, Double maxPrice) {
 
-        List<Producto> products = productRepo.findAll();
-        List<Producto> filteredProducts = new ArrayList<>();
+        List<Product> products = productRepo.findAll();
+        List<Product> filteredProducts = new ArrayList<>();
 
-        for (Producto product : products) {
+        for (Product product : products) {
             boolean matches = true;
 
             if (name != null && !name.isEmpty() && !product.getName().toLowerCase().contains(name.toLowerCase())) {

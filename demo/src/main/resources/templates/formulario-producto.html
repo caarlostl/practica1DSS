@@ -10,7 +10,7 @@
     <div class="container mt-5">
         <h1>Formulario de producto</h1>
 
-        <form th:action="@{/productos/save}" th:object="${product}" method="post">
+        <form th:action="@{/products/save}" th:object="${product}" method="post">
 
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 
@@ -28,7 +28,7 @@
 
             <button type="submit" class="btn btn-primary">Guardar</button>
 
-            <a th:href="@{/productos}" class="btn btn-secondary">Cancelar</a>
+            <a th:href="@{/products}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </body>

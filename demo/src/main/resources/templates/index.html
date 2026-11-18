@@ -8,10 +8,17 @@
     <div class="container">
         <h1 class="text-center my-5">Bienvenido a Nuestra Aplicación de E-commerce</h1>
 
+        <div class="d-flex justify-content-end align-items-center gap-2">
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()" class="btn btn-outline-primary m-3">Iniciar sesión</a>
+            <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+                <button type="submit" class="btn btn-danger m-3">Cerrar sesión</button>
+            </form> 
+        </div>
+
         <!-- Botones principales -->
         <div class="text-center mb-5">
             <a href="/products" class="btn btn-primary btn-lg me-3">Ver Catálogo de Productos</a>
-            <a href="/cart" class="btn btn-secondary btn-lg me-3">Ver Carrito</a>
+            <a href="/cart" class="btn bg-success-subtle text-dark btn-lg me-3">Ver Carrito</a>
             <a href="/admin" class="btn btn-warning btn-lg">Administrar Productos</a>
         </div>
 
